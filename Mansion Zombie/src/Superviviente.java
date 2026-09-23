@@ -7,9 +7,9 @@ public class Superviviente extends Personaje {
     private int protecciones = 0;
 
     //Constructor
-   public Superviviente() {
+    public Superviviente() {
         super(20, 4); //Maximo de vida y daño
-   }
+    }
 
     //Curarse con botiquin
     boolean curarse() {
@@ -28,33 +28,33 @@ public class Superviviente extends Personaje {
     }
 
     void añadirArma() {
-       armas++;
+        armas++;
     }
 
     void añadirProteccion() {
-       protecciones++;
+        protecciones++;
     }
 
     void obtenerBotiquin() {
-       tieneBotiquin = true;
+        tieneBotiquin = true;
     }
 
 
     //Getters
-    int getArmas(){
-       return armas;
+    int getArmas() {
+        return armas;
     }
 
     int getProtecciones() {
-       return protecciones;
+        return protecciones;
     }
 
     boolean isTieneBotiquin() {
-       return tieneBotiquin;
+        return tieneBotiquin;
     }
 
     int getVidaMaxima() {
-       return vidaMaxima;
+        return vidaMaxima;
     }
 
     public void setTieneBotiquin(boolean tieneBotiquin) {
