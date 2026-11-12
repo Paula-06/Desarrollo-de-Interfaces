@@ -1,16 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mansionzombie;
 
-public class Zombie extends Personaje{
+public class Zombie extends Personaje {
 
-    //Se generaran aleatoriamente
+    //Se generan aleatoriamente (ver Juego.crearZombie)
     public Zombie(int vida, int ataque) {
         super(vida, ataque);
     }
 
-
+    //Los zombies no van armados: usa atacar() de Personaje tal cual
 }
-

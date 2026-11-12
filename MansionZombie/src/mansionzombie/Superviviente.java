@@ -1,70 +1,75 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mansionzombie;
 
 public class Superviviente extends Personaje {
 
     //Atributos
-    public static final int vidaMaxima = 20; //Constante para que todos puedan ver que es maximo de 20 y final porque debe ser maximo de 20, fijo
-    private boolean tieneBotiquin = true;
+    public static final int vidaMaxima = 20;
+    public static final int curacionBotiquin = 4;
+    private boolean tieneBotiquin = false;
     private int armas = 0;
     private int protecciones = 0;
 
     //Constructor
     public Superviviente() {
-        super(20, 4); //Maximo de vida y daño
+        super(vidaMaxima, 4);
     }
 
-    //Curarse con botiquin
-    boolean curarse() {
+    //Metodos especificos
+    //Las armas se suman al resultado de la tirada, no al dado
+    @Override
+    public int atacar() {
+        return super.atacar() + armas;
+    }
+
+    //Cada proteccion reduce el daño recibido en 1 (nunca por debajo de 0)
+    @Override
+    public void recibirDaño(int daño) {
+        int dañoReducido = daño - protecciones;
+        if (dañoReducido < 0) {
+            dañoReducido = 0;
+        }
+        super.recibirDaño(dañoReducido);
+    }
+
+    //Curarse con botiquin. Devuelve true si se ha curado
+    public boolean curarse() {
         if (!tieneBotiquin) {
             return false;
         }
-
-        setVida(getVida() + 4);
-
+        setVida(getVida() + curacionBotiquin);
         if (getVida() > vidaMaxima) {
             setVida(vidaMaxima);
         }
-
         tieneBotiquin = false;
-        return false;
+        return true;
     }
 
-    void añadirArma() {
+    public void añadirArma() {
         armas++;
     }
 
-    void añadirProteccion() {
+    public void añadirProteccion() {
         protecciones++;
     }
 
-    void obtenerBotiquin() {
+    public void obtenerBotiquin() {
         tieneBotiquin = true;
     }
 
-
     //Getters
-    int getArmas() {
+    public int getArmas() {
         return armas;
     }
 
-    int getProtecciones() {
+    public int getProtecciones() {
         return protecciones;
     }
 
-    boolean isTieneBotiquin() {
+    public boolean isTieneBotiquin() {
         return tieneBotiquin;
     }
 
-    int getVidaMaxima() {
+    public int getVidaMaxima() {
         return vidaMaxima;
     }
-
-    public void setTieneBotiquin(boolean tieneBotiquin) {
-        this.tieneBotiquin = tieneBotiquin;
-    }
-
 }

@@ -1,11 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mansionzombie;
 
 public enum Dificultad {
-    FACIL,
-    DIFICIL
-}
+    FACIL(5),
+    DIFICIL(10);
 
+    private final int numHabitaciones;
+
+    Dificultad(int numHabitaciones) {
+        this.numHabitaciones = numHabitaciones;
+    }
+
+    public int getNumHabitaciones() {
+        return numHabitaciones;
+    }
+}

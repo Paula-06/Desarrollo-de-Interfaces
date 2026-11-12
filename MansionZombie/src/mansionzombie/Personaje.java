@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mansionzombie;
 
 public abstract class Personaje {
@@ -16,18 +12,27 @@ public abstract class Personaje {
         this.ataque = ataque;
     }
 
-    //dentro int
-    void recibirDaño(int daño) {
-        vida -= daño;
+    //Metodos compartidos por Zombie y Superviviente
+
+    //Tirada de un dado de 1 a maximo. Static porque no depende de ningun objeto
+    public static int tirarDado(int maximo) {
+        return (int) (Math.random() * maximo) + 1;
     }
 
-    //Está vivo *si* o *no*
-    boolean comprobarVivo() {
-        if (vida <= 0) {
-            return false;
-        } else {
-            return true;
+    //Ataque: dado con tantas caras como puntos de ataque
+    public int atacar() {
+        return tirarDado(ataque);
+    }
+
+    public void recibirDaño(int daño) {
+        vida -= daño;
+        if (vida < 0) {
+            vida = 0;
         }
+    }
+
+    public boolean comprobarVivo() {
+        return vida > 0;
     }
 
     //Setters
@@ -47,7 +52,4 @@ public abstract class Personaje {
     public int getVida() {
         return vida;
     }
-
-
-
 }

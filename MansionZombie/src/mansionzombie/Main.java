@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mansionzombie;
 
-/**
- *
- * @author Alumno Mañana
- */
 public class Main {
-    
-    //Juego partida = new Juego();
-    //
-    
-    
+
+    public static void main(String[] args) {
+        Juego partida = new Juego();
+        partida.iniciarPartida();
+        partida.jugar();
+    }
 }
