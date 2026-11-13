@@ -35,6 +35,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ejercicio 1 - Barra de herramientas");
         setPreferredSize(new java.awt.Dimension(500, 200));
         getContentPane().setLayout(new java.awt.FlowLayout());
 
